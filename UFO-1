@@ -1,0 +1,21 @@
+# Threat Intelligence Research: Sandworm Team (APT44)
+**Hack The Box — Threat Intelligence Track**
+
+Self-directed adversary research on **Sandworm Team** (aka BlackEnergy Group, APT44, Voodoo Bear, Iron Viking), a Russian state-sponsored APT known for targeting ICS/OT and critical infrastructure. Framed as an internship-style task: build actionable, MITRE ATT&CK-aligned intel from open-source reporting.
+
+## Methodology
+- Used MITRE ATT&CK's Sandworm group profile as an index, then validated against primary vendor/CERT reporting (Dragos, ESET, Mandiant/CISA).
+- Reconstructed a campaign timeline (2009–present) and mapped observed behavior to specific ATT&CK Tactics/Techniques/Sub-Techniques.
+- Cross-referenced tooling against the techniques it supported, not just descriptive malware summaries.
+
+## Key Findings
+- **Origins:** Earliest activity traced to 2009; confirmed collaboration with APT28 on select operations.
+- **2016 Ukraine power grid:** Credential access via `LSASS Memory (T1003.001)` and `Brute Force (T1110)`; lateral movement supported by a VBS script (`ufn.vbs`).
+- **2022 ICS/SCADA campaign:** Persistence via `Web Shell (T1505.003)` using Neo-REGEORG; living-off-the-land execution against SCADA via `scilc.exe -do pack\scil\s1.txt`; **CaddyWiper** deployed for destruction, with a secondary `Native API (T1106)` capability.
+- **Broader toolkit:** **NotPetya** tied to the `MS17-010` SMB vulnerability; **AcidRain** used against modems/edge devices; non-standard SSH port **6789** identified as a C2 network-hunting indicator.
+
+## Skills Demonstrated
+OSINT research & source validation · MITRE ATT&CK mapping · ICS/SCADA threat analysis · malware capability analysis · campaign timeline reconstruction
+
+## Tools & Frameworks
+MITRE ATT&CK (Enterprise & ICS) · Hack The Box Sherlock investigation environment · Dragos / ESET / CISA reporting
